@@ -1,0 +1,31 @@
+#Titulo {
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#Player{
+    color: #000000;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#Skill{
+    color: #000000;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#Button{
+    color: #000000;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

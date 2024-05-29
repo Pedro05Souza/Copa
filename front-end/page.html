@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Copa Nabor</title>
+</head>
+<body>
+
+    <div class="Título" id="Titulo">
+        <h1>Copa Nabor</h1>
+    </div>
+    <div>
+    <div class="Player" id="Player">
+        <input type="text" id="Player" placeholder="Player">
+    </div>
+
+    <div class="Skill" id="Skill">
+        <input type="text" id="Skill" placeholder="Skill">
+    </div>
+
+    <div class="Button" id="Button">
+        <button id="Button">Cadastrar</button>
+    </div>
+
+    <script>
+        document.getElementById("Button").addEventListener("click", function(){
+            var player = document.getElementById("Player").value
+            var skill = document.getElementById("Skill").value
+
+            const data = {
+                "player": player,
+                "skill": skill
+            }
+
+            const jsonData = JSON.stringify(data, null, 2)
+
+            console.log(jsonData)
+
+        });
+    </script>
+    
+
+  
+    
+</body>
+</html>
