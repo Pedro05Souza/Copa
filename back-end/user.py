@@ -1,4 +1,6 @@
+
 class User:
-    def __init__ (self, name, skill):
-        self.name = name
+    
+    def __init__(self, username, skill):
+        self.username = username
         self.skill = skill

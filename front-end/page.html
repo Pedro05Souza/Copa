@@ -11,35 +11,70 @@
     <div class="Título" id="Titulo">
         <h1>Copa Nabor</h1>
     </div>
+    <hr>
     <div>
     <div class="Player" id="Player">
-        <input type="text" id="Player" placeholder="Player">
+        <input type="text" id="Player-name" placeholder="Jogador">
     </div>
-
     <div class="Skill" id="Skill">
-        <input type="text" id="Skill" placeholder="Skill">
+        <input type="text" id="Skill-number" placeholder="Habilidade">
     </div>
 
-    <div class="Button" id="Button">
-        <button id="Button">Cadastrar</button>
+    <div class="ButtonDiv" id="Button">
+        <button id="cadastro">Cadastrar</button>
     </div>
+
+    <div class="error" id="error">
+        <p id="error-message"></p>
+    </div> 
+    <hr>
 
     <script>
-        document.getElementById("Button").addEventListener("click", function(){
-            var player = document.getElementById("Player").value
-            var skill = document.getElementById("Skill").value
+        document.getElementById("cadastro").addEventListener("click", function(){
+            var player = document.getElementById("Player-name").value
+            var skill = document.getElementById("Skill-number").value
 
+            if (player == "" || skill == ""){
+                document.getElementById("error-message").innerHTML = "Preencha todos os campos"
+                return
+            }
+            else if(skill < 1 || skill > 5){
+                document.getElementById("error-message").innerHTML = "Habilidade deve ser entre 1 e 5"
+                return
+            }
             const data = {
                 "player": player,
                 "skill": skill
             }
 
+            function makePost(data) {
+                fetch('http://localhost:3000', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+                
+            }
             const jsonData = JSON.stringify(data, null, 2)
-
+            makePost(data)
             console.log(jsonData)
-
         });
     </script>
+
+
+
+<script>
+    popup = document.getElementById("popup-window")
+</script>
     
 
   
