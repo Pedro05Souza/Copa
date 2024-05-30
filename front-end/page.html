@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,6 +30,11 @@
     </div> 
     <hr>
 
+    <div class="showPLayers" id="showPlayers">
+        <h1>Jogadores Cadastrados:</h1>
+        <div class="list-player" id="listPlayers">
+    </div>
+
     <script>
         document.getElementById("cadastro").addEventListener("click", function(){
             var player = document.getElementById("Player-name").value
@@ -46,24 +52,6 @@
                 "player": player,
                 "skill": skill
             }
-
-            function makePost(data) {
-                fetch('http://localhost:3000', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(data),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-                
-            }
             const jsonData = JSON.stringify(data, null, 2)
             makePost(data)
             console.log(jsonData)
@@ -73,7 +61,8 @@
 
 
 <script>
-    popup = document.getElementById("popup-window")
+    document.getElementById("showPlayers").appendChild(document.createElement("ul"))
+    
 </script>
     
 
