@@ -60,11 +60,17 @@
             };
             postRequest(data, userCreationEndpoint);
             getRequest(showAllUsersEndpoint, function(response){
+                if (response.length == 0){
+                    document.getElementById("error-message").innerHTML = "Nenhum jogador cadastrado";
+                    return;
+                }
                 const list = document.getElementById("listId");
                 list.innerHTML = "";
                 response.forEach(function(user){
                     const li = document.createElement("li");
+                    const button = document.createElement("button");
                     li.innerHTML = user.username + " - " + user.skill;
+                    button.innerHTML = "Propriedades";
                     list.appendChild(li);
                     console.log(user)
                 });

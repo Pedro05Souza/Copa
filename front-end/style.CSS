@@ -30,13 +30,11 @@ label{
     margin-bottom: 5px;
 }
 
-#listPlayers{
+#listId{
     color: #000000;
     font-size: 15px;
     font-weight: bold;
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
 }
 
 #sortear-button{

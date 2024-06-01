@@ -38,5 +38,26 @@ function getRequest(route){
     });
 }
 
+function putRequest(data, route){
+    fetch(`${route}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: String(data.username),
+            skill: String(data.skill),
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        console.log(data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
 
 

@@ -1,7 +1,9 @@
 from user import User
 
 class UserList:
-    users = [] 
+    users = []
+    group1 = [] 
+    group2 = [] 
 
     @classmethod
     def add_user(cls, user) -> bool:
@@ -32,14 +34,21 @@ class UserList:
                 return True
         return False
     
-    
     @classmethod
-    def bubble_sort(cls, arr) -> list:
-        list_size = len(arr)
-        for i in range(list_size):
-            for j in range(0, list_size-i-1):
-                if arr[j].skill > arr[j+1].skill:
-                    arr[j], arr[j+1] = arr[j+1], arr[j]
-        return arr
+    def divide_groups(cls) -> bool:
+        if len(cls.users) < 4:
+            return False
+        sorted_users = sorted(cls.users, key=lambda user: user.skill)
+        for i, user in enumerate(sorted_users):
+            if i % 2 == 0:
+                cls.group1.append(user)
+            else:
+                cls.group2.append(user)
+        return len(cls.group1) == len(cls.group2)
+
+
+
+
+
             
     
