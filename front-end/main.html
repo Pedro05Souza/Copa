@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="router.js"></script>
+    <title>Copa Nabor</title>
+</head>
+<body>
+
+    <div class="Título" id="Titulo">
+        <h1>Copa Nabor</h1>
+    </div>
+    <hr>
+    <div class = "formsUser" id ="formsUser">
+        <label for="Player-name">Nome do Jogador:</label>
+        <input type="text" id="Player-name" name="Player-name" required>
+        <label for="Skill-number">Habilidade:</label>
+        <input type="number" id="Skill-number" name="Skill-number" required>
+        <label for="Submit-button"></label>
+        <input type="submit" id="Submit-button" name="Submit-button" value="cadastrar">
+    </div>
+
+    <div class="error" id="error">
+        <p id="error-message"></p>
+    </div> 
+    <hr>
+
+    <div class="showPLayers" id="showPlayers">
+        <h1>Jogadores Cadastrados:</h1>
+        <div class="list-player" id="listPlayers">
+            <ul id="listId">
+            </ul>
+    </div>
+    <hr>
+
+    <div class="sortear" id="sortear-div">
+        <button id="sortear-button">Sortear</button>
+    </div>
+
+    <script>
+        document.getElementById("Submit-button").addEventListener("click", function(){
+            var player = document.getElementById("Player-name").value;
+            var skill = document.getElementById("Skill-number").value;
+
+            if (player == "" || skill == ""){
+                document.getElementById("error-message").innerHTML = "Preencha todos os campos";
+                return;
+            }
+
+            else if(skill < 1 || skill > 5){
+                document.getElementById("error-message").innerHTML = "Habilidade deve ser entre 1 e 5";
+                return;
+            };
+            const data = {
+                "username": player,
+                "skill": skill
+            };
+            postRequest(data, userCreationEndpoint);
+            getRequest(showAllUsersEndpoint, function(response){
+                const list = document.getElementById("listId");
+                list.innerHTML = "";
+                response.forEach(function(user){
+                    const li = document.createElement("li");
+                    li.innerHTML = user.username + " - " + user.skill;
+                    list.appendChild(li);
+                    console.log(user)
+                });
+            });
+        });
+    </script>
+    
+<script>
+    document.getElementById("sortear-button").addEventListener("click", function(){
+        linkref = "grupo.html";
+        window
+        .location
+        .href
+        = linkref;
+    });
+</script>
+
+<script>
+    
+</script>
+    
+</body>
+</html>

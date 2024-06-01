@@ -1,6 +1,4 @@
-
-class User:
-    
-    def __init__(self, username, skill):
-        self.username = username
-        self.skill = skill
+from pydantic import BaseModel
+class User(BaseModel):
+    username: str
+    skill: str

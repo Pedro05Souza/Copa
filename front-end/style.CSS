@@ -7,34 +7,47 @@
     margin-bottom: 20px;
 }
 
-#Player{
-    color: #000000;
-    font-size: 15px;
-    margin: 15px;
-    font-weight: bold;
+#formsUser{
+    color : 000000;
     text-align: center;
-}
-
-#Skill{
-    color: #000000;
-    font-size: 15px;
-    margin: 5px;
-    font-weight: bold;
-    text-align: center;
-}
-
-#Button{
-    color: #000000;
-    font-size: 15px;
-    border-radius: 15px;
-    font-style: italic;
-    font-weight: bold;
     padding: 10px;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 15px;
+    margin-top: 20px;
 }
 
+
+#Submit-button{
+   font-size: 15px;
+   color: #FFFFFF;
+   border: none;
+   margin-top: 15px;
+   background-color: #73AD21;
+   padding : 10px;
+   border-radius: 5px;
+}
+
+label{
+    display:block;
+    margin-bottom: 5px;
+}
+
+#listPlayers{
+    color: #000000;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#sortear-button{
+    font-size: 15px;
+    color: #FFFFFF;
+    border: none;
+    margin-top: 15px;
+    background-color: #73AD21;
+    padding : 10px;
+    border-radius: 5px;
+}
 
 #error{
     color: #FF0000;
