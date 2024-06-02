@@ -5,6 +5,11 @@ from userList import UserList
 
 app = FastAPI()
 
+origins = [
+
+    # falta fazer
+]
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -19,7 +24,7 @@ async def store_user(user: User):
         UserList.add_user(user)
         return {"message": "User added successfully"}
     else:
-        raise HTTPException(status_code=400, detail="User already exists")
+        return {"message": "User already exists"}
 
 @app.get("/users/")
 async def showUsers():

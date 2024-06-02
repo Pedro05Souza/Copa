@@ -16,10 +16,11 @@ function postRequest(data, route){
             skill: String(data.skill),
         })
     })
-    .then(response => response.json())
+    .then(response => response.json()
+)
     .then(data => {
         console.log('Success:', data);
-        console.log(data);
+        return data;
     })
     .catch((error) => {
         console.error('Error:', error);
@@ -52,11 +53,15 @@ function putRequest(data, route){
     .then(response => response.json())
     .then(data => {
         console.log('Success:', data);
-        console.log(data);
     })
     .catch((error) => {
         console.error('Error:', error);
     });
+}
+
+function treatEndpoint(endpointMethod){
+    let returnClient = endpointMethod();
+
 }
 
 

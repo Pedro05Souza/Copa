@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copa dos guri</title>
+    <link rel="shortcut icon" href="imagens/nabor.ico" type="image/x-icon">
+    <link rel="stylesheet" href="buttonComponents.CSS">
+    <link rel="stylesheet" href="bannerStyle.css">
+</head>
+<body>
+    <div class="banner">
+        <div class="header" id="header">
+            <div class="image-container">
+                <img class ="img" id="imgContainer" src="imagens/Assisbrasil.png" alt="Logo da Copa dos guri">
+                <h1 class="Title" id="rootTitle">Copa dos Guri</h1>
+                <p class="Subtitle" id="rootSubtitle">Desenvolvedores: Manghelli e ph</p>
+            </div>
+        </div>
+
+        <div class="bannerButton-container">
+            <button class="button" id="Bannerbutton">Entrar</button>
+        </div>
+    </div>
+
+    <script>
+        const actionButton = document.getElementById('Bannerbutton');
+        actionButton.addEventListener('click', () => {
+            window.location.href = 'main.html';
+        });
+    </script>
+
+    
+    
+</body>
+</html>

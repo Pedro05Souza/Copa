@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'teacher';
+    src: url('TeachersStudent-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+    background-color: #000000;
+}
+
+.image-container{
+    position: relative;
+    width: auto;
+}
+
+#header{
+    overflow: auto;
+    float: left;
+    width: 100%;
+}
+
+#rootSubtitle{
+    font-family: 'teacher', Times, serif;
+    position: absolute;
+    top: 70%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    text-align: center;
+    font-stretch: expanded;
+    text-shadow: 2px 2px 4px #000000;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 15px;
+    font: 30px, "Poppins", sans-serif;
+
+}
+
+#rootTitle{
+    font-family: 'teachers_student';
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    text-align: center;
+    font-stretch: expanded;
+    text-shadow: 2px 2px 4px #000000;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 70px;
+    font: 30px, "Poppins", sans-serif;
+}
+
+#imgContainer {
+    opacity: 0.8;
+    display: block;
+    margin: 0;
+    width: 100%;
+}
+
+
+
