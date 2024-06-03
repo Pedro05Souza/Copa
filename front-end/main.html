@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>main</title>
-    <link rel="stylesheet" href="buttonComponents.CSS">
     <link rel="stylesheet" href="main.CSS">
+    <link rel="stylesheet" href="buttonComponents.CSS">
     <script src="router.js" defer></script>
 </head>
 <body>
@@ -18,23 +18,63 @@
                 <label class="displaySkill"for="Habilidade">Habilidade:</label>
                 <input class="inputSkill"type="number" id="Habilidade" name="Habilidade" required>
                 <button class="button" id="forms-button" type="submit">Enviar</button>
+                <button class="button" id="ranking-button">Jogadores</button>
             </form>
         </div>
-            <p class="Error-message"></p>
+        <div class="popup-ranking">
+            <dialog class="popup"id="popup-ranking">
+                <ul id="popup-list">
+
+                </ul>
+            <button class="button" id="sortear-button">Sortear</button>
+            <button class="button" id="close-button">Fechar</button>
+            </dialog>
+        </div>
+
     </div>
 
     <script>
-        const button = document.getElementById('forms-button');
-        button.addEventListener('click', function(){
+        const formsbutton = document.getElementById('forms-button');
+        formsbutton.addEventListener('click', function(event){
             const name = document.getElementById('name').value;
             const skill = document.getElementById('Habilidade').value;
+            if(skill < 0 || skill > 5) {
+                event.preventDefault();
+                name = '';
+                skill.value = '';
+                return;
+            }
             const data = {
                 "name": name,
                 "skill": skill
             }
             postRequest(data, userCreationEndpoint);
         });
+    </script>
 
+    <script>
+        const rankingButton = document.getElementById('ranking-button');
+        const popup = document.getElementById('popup-ranking');
+        const closeButton = document.getElementById('close-button');
+        const sortearButton = document.getElementById('sortear-button');
+        rankingButton.addEventListener('click', function(){
+            getRequest(showAllUsersEndpoint, function(response){
+                const list = document.getElementById('popup-list');
+                list.innerHTML = '';
+                response.forEach(function(user){
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `${user.name} - ${user.skill}`;
+                    list.appendChild(listItem);
+                });
+            });
+            
+            popup.showModal();
+
+        });
+
+        closeButton.addEventListener('click', function(){
+            popup.close();
+        });
     </script>
     
 </body>

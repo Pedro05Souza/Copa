@@ -26,7 +26,21 @@
     transform: translateY(4px);
 }
 
-
 .bannerButton-container{
     text-align: center;
+}
+
+#ranking-button{
+    padding: 10px 20px;
+    margin: 15px;
+}
+
+#sortear-button{
+    padding: 10px 20px;
+    margin: 15px;
+}
+
+#close-button{
+    padding: 10px 20px;
+    margin: 15px;
 }

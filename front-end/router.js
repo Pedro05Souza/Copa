@@ -59,9 +59,23 @@ function putRequest(data, route){
     });
 }
 
-function treatEndpoint(endpointMethod){
-    let returnClient = endpointMethod();
-
+function deleteRequest(data, route){
+    fetch(`${route}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            username: String(data.username),
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
 }
 
 
